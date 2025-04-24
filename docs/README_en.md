@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/521xueweihan/HGDoll/master/docs/assets/icon.png"/>
+  <img src="https://raw.githubusercontent.com/521xueweihan/HGDoll/blob/main/docs/assets/icon.png"/>
   <br><a href="README.md">中文</a> | English
   <br>HGDoll is an AI mobile companion app.
 </p>
@@ -67,52 +67,6 @@ HGDoll/
 ├── android/          # Android client
 ├── server/           # Backend service
 └── docs/             # Project documentation
-```
-
-```mermaid
-graph TD
-    User((User)) --> Android[Android Client]
-    
-    subgraph Client[Client Side]
-        Android --> Speech[Speech Recognition]
-        Android --> Screen[Screen Recording]
-        Speech --> SpeechAPI[Doubao Streaming ASR]
-        SpeechAPI --> TextResult[Speech-to-Text Result]
-        Screen --> ScreenCapture[Periodic Screenshots]
-        AudioPlay[Audio Playback] --> Android
-    end
-    
-    subgraph Server[Server Side Arkitect]
-        TextResult --> Backend[Backend Service]
-        ScreenCapture --> Backend
-        Backend --> TempMemory[Temporary Memory]
-        TempMemory --> Context[Session Context]
-        Context --> CTX1[Context-id-1]
-        Context --> CTX2[Context-id-2]
-        Context --> CTX3[Context-id-3]
-        Context --> CTXN[...]
-        Context --> Prompt[Prompt Generation]
-        ImageResult[Screenshot Recognition Result] --> TempMemory
-        AudioResult[Speech Synthesis Result] --> AudioPlay
-    end
-    
-    subgraph AI[AI Model Service]
-        Backend --> VLM[Doubao-vision-pro-32k]
-        VLM --> ImageResult
-        Prompt --> LLM[Doubao-pro-32k]
-        LLM --> TTS[Doubao Speech Synthesis]
-        TTS --> AudioResult
-    end
-
-    style User fill:#f9f,stroke:#333,stroke-width:2px
-    style Client fill:#e4f7fb,stroke:#333,stroke-width:1px
-    style Server fill:#e6ffe6,stroke:#333,stroke-width:1px
-    style AI fill:#e6e6ff,stroke:#333,stroke-width:1px
-    style Android fill:#fff,stroke:#333,stroke-width:1px
-    style Backend fill:#fff,stroke:#333,stroke-width:1px
-    style VLM fill:#fff,stroke:#333,stroke-width:1px
-    style LLM fill:#fff,stroke:#333,stroke-width:1px
-    style TTS fill:#fff,stroke:#333,stroke-width:1px
 ```
 
 ### Tech Stack

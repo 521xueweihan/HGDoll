@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/521xueweihan/HGDoll/master/docs/assets/icon.png"/>
+  <img src="https://raw.githubusercontent.com/521xueweihan/HGDoll/blob/main/docs/assets/icon.png"/>
   <br>中文 | <a href="docs/README_en.md">English</a>
   <br>HGDoll 是一款 AI 手机陪玩应用.
 </p>
@@ -72,52 +72,6 @@ HGDoll/
 └── docs/             # 项目文档
 ```
 
-```mermaid
-graph TD
-    User((用户)) --> Android[安卓客户端]
-    
-    subgraph Client[客户端]
-        Android --> Speech[语音识别]
-        Android --> Screen[屏幕录制]
-        Speech --> SpeechAPI[Doubao-流式语音识别]
-        SpeechAPI --> TextResult[语音转文字结果]
-        Screen --> ScreenCapture[定时截图]
-        AudioPlay[语音播放] --> Android
-    end
-    
-    subgraph Server[Server 端 Arkitect]
-        TextResult --> Backend[后端服务]
-        ScreenCapture --> Backend
-        Backend --> TempMemory[临时记忆体]
-        TempMemory --> Context[会话上下文]
-        Context --> CTX1[Context-id-1]
-        Context --> CTX2[Context-id-2]
-        Context --> CTX3[Context-id-3]
-        Context --> CTXN[...]
-        Context --> Prompt[Prompt 生成]
-        ImageResult[截图识别结果] --> TempMemory
-        AudioResult[语音合成结果] --> AudioPlay
-    end
-    
-    subgraph AI[AI 模型服务]
-        Backend --> VLM[Doubao-vision-pro-32k]
-        VLM --> ImageResult
-        Prompt --> LLM[Doubao-pro-32k]
-        LLM --> TTS[Doubao-语音合成]
-        TTS --> AudioResult
-    end
-
-    style User fill:#f9f,stroke:#333,stroke-width:2px
-    style Client fill:#e4f7fb,stroke:#333,stroke-width:1px
-    style Server fill:#e6ffe6,stroke:#333,stroke-width:1px
-    style AI fill:#e6e6ff,stroke:#333,stroke-width:1px
-    style Android fill:#fff,stroke:#333,stroke-width:1px
-    style Backend fill:#fff,stroke:#333,stroke-width:1px
-    style VLM fill:#fff,stroke:#333,stroke-width:1px
-    style LLM fill:#fff,stroke:#333,stroke-width:1px
-    style TTS fill:#fff,stroke:#333,stroke-width:1px
-```
-
 ### 技术栈
 
 #### 安卓客户端
@@ -136,4 +90,3 @@ graph TD
 ## 许可证
 
 本项目采用 MIT 许可证，详见 [LICENSE](LICENSE) 文件。
->>>>>>> 00360e3 (update README)
