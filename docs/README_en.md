@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/521xueweihan/HGDoll/blob/main/docs/assets/icon.png"/>
+  <img src="https://raw.githubusercontent.com/521xueweihan/HGDoll/refs/heads/main/docs/assets/icon.png" width='200'/>
   <br><a href="README.md">中文</a> | English
   <br>HGDoll is an AI mobile companion app.
 </p>
