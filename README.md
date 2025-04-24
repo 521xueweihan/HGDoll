@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/521xueweihan/HGDoll/blob/main/docs/assets/icon.png"/>
+  <img src="https://raw.githubusercontent.com/521xueweihan/HGDoll/refs/heads/main/docs/assets/icon.png" width='200'/>
   <br>中文 | <a href="docs/README_en.md">English</a>
   <br>HGDoll 是一款 AI 手机陪玩应用.
 </p>
