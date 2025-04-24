@@ -8,7 +8,7 @@
 
 https://github.com/user-attachments/assets/704d7f2a-3206-45f2-8760-d9cf9577ca7c
 
-目前 HGDoll 还只是一个“小玩具”，仍有许多 Bug 和待完善之处，欢迎上手体验并为我们贡献代码。
+目前，HGDoll 还只是一个“小玩具”，仍有许多 Bug 和改进空间，我会持续更新和完善，同时欢迎大家上手体验，一起贡献代码。
 
 ## 架构图
 
