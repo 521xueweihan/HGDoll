@@ -1,8 +1,11 @@
 # HGDoll 后端
 
+HGDoll 后端依赖于火山方舟开源的用于开发高代码应用的 Python SDK——Arkitect 它面向具有专业开发能力的开发者，提供开发大模型应用需要用到的工具集和流程集。更多介绍见 [高代码 SDK Arkitect](https://github.com/volcengine/ai-app-lab/blob/main/arkitect/README.md)。
+
+
 ## 一、快速开始
 
-本文为您介绍如何在本地快速部署 HGDoll Server 端。(Python 版本要求大于等于 3.8，小于 3.12)
+本文为您介绍如何在本地快速部署 HGDoll Server 端，Python 版本要求大于等于 3.8，小于 3.12，[点击查看](../docs/key.md)如何申请运行所需的 API Key。
 
 ### 1.1 下载代码库
 

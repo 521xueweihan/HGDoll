@@ -2,7 +2,7 @@
 
 ![](show.png)
 
-HGDoll 是一个基于 Kotlin 和 Jetpack Compose 开发的安卓客户端应用。
+HGDoll 是一个基于 Kotlin 和 Jetpack Compose 开发的安卓客户端应用，它采用豆包语音大模型服务，[点击查看](../docs/key.md)如何申请运行所需的 API Key。
 
 ## 环境要求
 
@@ -33,6 +33,8 @@ cd android/
 2. 点击 Android Studio 工具栏中的 "Run" 按钮（绿色三角形）
 3. 选择目标设备
 4. 等待应用安装和启动
+5. 在 App 中输入对应的 ASR Token、ASR App ID、本地 Server IP
+
 
 ## 项目结构
 
