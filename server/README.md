@@ -5,7 +5,7 @@ HGDoll 后端依赖于火山方舟开源的用于开发高代码应用的 Python
 
 ## 一、快速开始
 
-本文为您介绍如何在本地快速部署 HGDoll Server 端，Python 版本要求大于等于 3.8，小于 3.12，[点击查看](../docs/key.md)如何申请运行所需的 API Key。
+本文为您介绍如何在本地快速部署 HGDoll Server 端（Python 3.8-3.12），[点击查看](../docs/key.md)如何申请运行所需的 API Key。
 
 ### 1.1 下载代码库
 
