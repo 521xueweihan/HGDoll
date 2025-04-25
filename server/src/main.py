@@ -89,6 +89,7 @@ async def chat_with_vlm(
     second_resp = await iterator.__anext__()
     if second_resp.choices and second_resp.choices[0].delta.content != "":
         message += second_resp.choices[0].delta.content
+    print("message：", message)
     if message.startswith("不知道"):
         return False, None
     async def stream_vlm_outputs():
@@ -134,6 +135,7 @@ async def chat_with_llm(
     response_task = asyncio.create_task(
         llm_answer(contexts, context_id, request, parameters)
     )
+    logger.info("llm can respond")
     return await response_task
 
 
@@ -144,14 +146,14 @@ async def chat_with_branches(
     parameters: ArkChatParameters,
     context_id: str,
 ) -> AsyncIterable[Union[ArkChatCompletionChunk, ArkChatResponse]]:
+
     llm_task = asyncio.create_task(
         chat_with_llm(contexts, request, parameters, context_id)
     )
 
     can_response, llm_iter = await llm_task
-    logger.info(f"type I got from llm: {type(llm_iter)}")
+    # print(f"type I got from llm: {type(llm_iter)}")
     return llm_iter
-
 
 
 @task(watch_io=False)
@@ -174,7 +176,7 @@ async def summarize_image(
     )
     resp = await vlm.arun()
     message = resp.choices[0].message.content
-    print(datetime.datetime.now(), "这是图片分析出来的结果：", message)
+    print("图片分析结果：", message)
     message = FRAME_DESCRIPTION_PREFIX + message
     await contexts.append(context_id, ArkMessage(role="assistant", content=message))
 
@@ -185,7 +187,7 @@ async def default_model_calling(
 ) -> AsyncIterable[Union[ArkChatCompletionChunk, ArkChatResponse]]:
     # local in-memory storage should be changed to other storage in production
     context_id: Optional[str] = get_headers().get("X-Context-Id", None)
-    print(datetime.datetime.now(), "context_id: ", context_id)
+    print("context_id：", context_id)
     assert context_id is not None
     contexts: utils.Storage = utils.CoroutineSafeMap.get_instance_sync()
     if not await contexts.contains(context_id):
@@ -198,6 +200,7 @@ async def default_model_calling(
         and isinstance(request.messages[-1].content[0], ChatCompletionMessageTextPart)
         and request.messages[-1].content[0].text == ""
     )
+    print("is_image", is_image)
     parameters = ArkChatParameters(**request.__dict__)
     if is_image:
         _ = asyncio.create_task(
