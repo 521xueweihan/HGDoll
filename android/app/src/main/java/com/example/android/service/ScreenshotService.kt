@@ -425,6 +425,7 @@ class ScreenshotService : Service() {
                         .addHeader("Connection", "close")
                         .build()
 
+                    Log.d("ScreenshotService", "ScreenshotService: " + contextId)
                     val response = okHttpClient.newCall(request).execute()
                     val responseCode = response.code
 
@@ -456,4 +457,4 @@ class ScreenshotService : Service() {
             }
         }.start()
     }
-} 
+}

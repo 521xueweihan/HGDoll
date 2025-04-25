@@ -445,7 +445,7 @@ class AsrService : Service() {
             // 发送初始文本
             GlobalScope.launch(kotlinx.coroutines.Dispatchers.IO) {
                 try {
-                    sendTextAsr("让我们开始玩游戏吧")
+                    sendTextAsr("应用初始化")
                 } catch (e: Exception) {
                     Log.e("AsrService", "Error sending initial text", e)
                 }
@@ -465,12 +465,6 @@ class AsrService : Service() {
                 Thread.sleep(2000) // 增加等待时间到2秒
             } catch (e: Exception) {
                 Log.e("AsrService", "Error releasing previous AudioRecord", e)
-            }
-
-            // 检查麦克风权限
-            if (checkSelfPermission(android.Manifest.permission.RECORD_AUDIO) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
-                Log.e("AsrService", "No microphone permission")
-                return
             }
 
             // 检查麦克风是否可用
@@ -963,6 +957,7 @@ class AsrService : Service() {
                     .addHeader("X-Context-Id", contextId)
                     .addHeader("Connection", "close")
                     .build()
+                Log.d("AsrRequest", "AsrRequest: " + contextId)
 
                 val response = okHttpClient.newCall(request).execute()
                 val responseCode = response.code
@@ -1161,5 +1156,3 @@ class AsrService : Service() {
         return out.toByteArray()
     }
 }
-
-
